@@ -1,4 +1,4 @@
-[![CircleCI](https://app.circleci.com/pipelines/github/Poan18/microblog.svg?style=svg)](https://app.circleci.com/pipelines/github/Poan18/microblog)
+[![CircleCI](https://circleci.com/gh/Poan18/microblog.svg?style=svg)](https://circleci.com/gh/Poan18/microblog)
 
 Microblog
 ===================
