@@ -1,0 +1,18 @@
+FROM python:3.6-alpine
+RUN adduser -D microblog
+
+WORKDIR /home/microblog
+
+COPY requirements requirements
+COPY test.sh ./
+COPY Makefile Makefile
+COPY .pylintrc .pylintrc
+copy pytest.ini pytest.ini
+
+RUN python -m venv .venv
+RUN apk --no-cache add alpine-sdk=1.0-r0
+RUN .venv/bin/pip3 install -r requirements/test.txt
+
+RUN chmod +x test.sh
+
+ENTRYPOINT ["./test.sh"]
