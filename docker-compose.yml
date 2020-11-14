@@ -1,9 +1,7 @@
 version: "3"
 services:
     prod:
-        build: 
-            context: .
-            dockerfile: ./docker/Dockerfile_prod
+        image: poan18/microblog:latest
         container_name: "microblog"
         ports:
             - "8000:5000"
