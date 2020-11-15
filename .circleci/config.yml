@@ -48,8 +48,8 @@ workflows:
            branches:
              only: master
      - publish-latest:
-       requires:
-         - build_image
-       filters:
-         branches:
-           only: master
+         requires:
+           - build_image
+         filters:
+           branches:
+             only: master
