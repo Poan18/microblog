@@ -1,7 +1,7 @@
 version: "3"
 services:
     prod:
-        image: poan18/microblog:latest
+        image: poand18/microblog:latest
         container_name: "microblog"
         ports:
             - "8000:5000"
