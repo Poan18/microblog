@@ -6,7 +6,7 @@ executors:
       IMAGE_NAME: poand18/microblog
     docker:
     - image: circleci/buildpack-deps:stretch
-    
+
 jobs:
   test:
     docker:
@@ -17,16 +17,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install dependencies
+          name: Install dev dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -r requirements.txt
+            make install-dev
       - run:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest -v --cov
+            docker-compose up test
 
   build_image:
     executor: docker-publisher
@@ -58,7 +58,7 @@ jobs:
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
- 
+
 workflows:
   version: 2
   build-master:
