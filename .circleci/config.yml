@@ -15,7 +15,6 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - setup_remote_docker
       - checkout
       - run:
           name: Install dev dependencies
@@ -27,7 +26,9 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            docker-compose up test
+            make validate
+            make test-unit
+            make test-integration
 
   build_image:
     executor: docker-publisher
