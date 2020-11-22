@@ -1,0 +1,13 @@
+
+version: "3"
+services:
+  prod:
+      image: poand18/microblog:latest
+      container_name: "microblog"
+      ports:
+          - "8000:5000"
+      environment:
+          - SECRET_KEY=production
+          - DATABASE_URL=mysql+pymysql://microblog:passwd@23.102.5.99/microblog
+      restart:
+          "always"

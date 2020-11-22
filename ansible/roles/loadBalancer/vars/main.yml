@@ -1,0 +1,7 @@
+---
+lb_method: "ip_hash"
+admin_email: "ponteman@live.se"
+
+packages:
+    -   nginx
+    -   python-certbot-nginx

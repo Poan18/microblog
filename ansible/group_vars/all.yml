@@ -1,13 +1,19 @@
 ---
 # Here you can add variables that will be available for all hosts.
 region: northeurope
-resource_group: <resource-id> # Change me
-domain_name: <domain> # Change me
+resource_group: BTH-kmom01-POAN18-45c6c2 # Change me
+domain_name: ponand.me # Change me
 
 root_user: azureuser
+root_password: $6$xYVZyXmnPDo80H$KLCwHpiZ1LnP/Ah/SyYp/Qky6KJAM9Ff1uyUfhNWtXEweMxiYbtgdljNUGK3Yg6Gl3NTvh9zUG/bOkGLdLMss1
+
+server_user: deploy
+server_user_pass: $6$WTq2eQRCaSHk$hwRR.T/Je3V8BsvkX196qZBBli8kf10lUonxy3xf41pJAqluJ7Z2uWPHWrKo/dSr1O61q7jtpuAojXscpNGbK/
+server_user_groups:
+    -   sudo
 
 vmtags:
-    StudentId: "<akronym>" # Change me
+    StudentId: "poan18" # Change me
 
 
-pub_ssh_key_location: '/home/<user>/.ssh/<key-name>.pub' # Change me, your local ssh key!
+pub_ssh_key_location: '/home/pontus/.ssh/azureci.pub' # Change me, your local ssh key!
