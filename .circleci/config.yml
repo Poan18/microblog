@@ -71,12 +71,15 @@ jobs:
              sudo apt-get install python3-venv
              python3 -m venv venv
              . venv/bin/activate
-             make install-deploy
+             pip install wheel
+             pip install -r requirements/deploy.txt
+             pip install ansible[azure]
       - run:
           name: Deploy appServer
           command: |
+              . venv/bin/activate
+              cd ansible
               ansible-playbook gather_vm_instances.yml appServer.yml
-
 
 workflows:
   version: 2
