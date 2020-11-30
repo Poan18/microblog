@@ -1,5 +1,5 @@
 #!/bin/sh
-source /home/microblog/venv/bin/activate
+source .venv/bin/activate
 
 while true; do
     flask db upgrade
