@@ -150,7 +150,7 @@ exec-tests: test-unit test-integration
 
 # target: test                         - Run tests and display code coverage
 .PHONY: test
-test: validate exec-tests
+test: validate exec-tests bandit
 	${py} -m coverage report  --rcfile=.coveragerc
 	$(MAKE) clean-cov
 
@@ -216,3 +216,7 @@ install-deploy:
 	${pip} install -r requirements/deploy.txt
 	@${pip} install ansible[azure]
 
+# target: bandit                - Run bandit tool to analyze security within code
+.PHONY: bandit
+bandit:
+	bandit -r app
