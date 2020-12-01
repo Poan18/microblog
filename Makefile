@@ -163,6 +163,20 @@ test-html: exec-tests
 
 
 
+# target: bandit                          - Run bandit tool to analyze security within code
+.PHONY: bandit
+	bandit:
+		bandit -r app
+
+
+
+# target: zap                             - Run zap to search for security flaws in published microblog app
+.PHONY: zap
+	zap:
+		docker run owasp/zap2docker-weekly zap-baseline.py -t https://www.ponand.me
+
+
+
 ## target: clean-py                     - Remove generated python files
 .PHONY: clean-py
 clean-py:
@@ -215,8 +229,3 @@ install-test:
 install-deploy:
 	${pip} install -r requirements/deploy.txt
 	@${pip} install ansible[azure]
-
-# target: bandit                - Run bandit tool to analyze security within code
-.PHONY: bandit
-bandit:
-	bandit -r app

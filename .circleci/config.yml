@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dev dependencies
+          name: Install test dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
