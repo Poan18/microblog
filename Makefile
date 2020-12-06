@@ -165,15 +165,15 @@ test-html: exec-tests
 
 # target: bandit                          - Run bandit tool to analyze security within code
 .PHONY: bandit
-	bandit:
-		bandit -r app
+bandit:
+	bandit -r app
 
 
 
 # target: zap                             - Run zap to search for security flaws in published microblog app
 .PHONY: zap
-	zap:
-		docker run owasp/zap2docker-weekly zap-baseline.py -t https://www.ponand.me
+zap:
+	docker run owasp/zap2docker-weekly zap-baseline.py -t https://www.ponand.me
 
 
 
